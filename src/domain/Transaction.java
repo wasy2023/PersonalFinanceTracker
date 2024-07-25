@@ -2,11 +2,19 @@ package domain;
 
 import java.time.LocalDateTime;
 
-public abstract class Transaction {
+public abstract class Transaction implements Identifiable<TransactionType> {
     private int amount;
     private Period period;
     private LocalDateTime dateTime;
+    private int userID;
 
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
 
     public LocalDateTime getDateTime() {
         return dateTime;

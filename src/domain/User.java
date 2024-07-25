@@ -10,6 +10,15 @@ public class User {
     private String password;
     private int balance;
     private int ID;
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
     private final HashMap<Integer,Expenses> transactions;
 
     public User(int balance,int ID, HashMap<Integer,Expenses> transactions){

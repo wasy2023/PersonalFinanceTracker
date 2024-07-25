@@ -8,12 +8,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class UserDB extends DBconnection{
-    private List<User> users = new ArrayList<>();
+public class UserDB {
+    public List<User> users = new ArrayList<>();
 
-    @Override
+    public UserDB(){
+        fetchData();
+    }
     public void fetchData() {
-        try(Connection connection = DriverManager.getConnection(URL);
+        try(Connection connection = DriverManager.getConnection("jdbc:sqlite:identifier.sqlite");
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM User");){
             while(resultSet.next()) {
@@ -25,18 +27,12 @@ public class UserDB extends DBconnection{
         }
 
     }
-
-    @Override
     public void putData() {
 
     }
-
-    @Override
     public void deleteData() {
 
     }
-
-    @Override
     public void update() {
 
     }
